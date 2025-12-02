@@ -11,12 +11,13 @@ $links = [
         'header' => 'Gestion',
     ],
      [
-        'name' => 'Roles y permisos',
+        'name' => 'Roles',
         'icon' => 'fa-solid fa-shield-halved',
-        'href' => '#',
-        'active' => false,
-        // 'href' => route('admin.roles.index'),
-        // 'active' => request()->routeIs('adminroles.*'),
+        'href' => route('admin.roles.index'),
+        'active' => request()->routeIs('admin.roles.*'),
+    ],
+     [
+        'header' => 'Gestion de usuarios',
     ],
     [
         'name' => 'Usuarios',

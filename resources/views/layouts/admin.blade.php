@@ -2,6 +2,7 @@
     'title' => config('app.name', 'laravel'), // <-- Aquí faltaba la coma
     'breadcrumbs' => []
 ])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -39,7 +40,7 @@
  @include('layouts.includes.admin.navigation')
  @include('layouts.includes.admin.sidebar') 
         
-<div class="p-4 sm:ml-64 pt-20">
+<div class="p-4 sm:ml-64 pt-5">
       <div class = "mt-14 flex items-center justify-between w-full">
         @include('layouts.includes.admin.breadcrumb')
 
@@ -59,6 +60,39 @@
         @livewireScripts
 
         <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+        @if (@session('swal'))
+        <script>
+                        Swal.fire(@json(session('swal')));
+;
+        </script>
+    @endif
+    <script>
+        //vas a buscar todos los elemento de una clase especifica
+        forms = document.querySelectorAll('.delete-form')
+        forms.forEach(form => {
+            //Se pone al pendiente de cualquier accion submit o modo chismosa xddxxxdddx
+            form.addEventListener('submit', function(e){
+                //evite que se envie 
+                e.preventDefault();
+                Swal.fire({
+  title: "¿Estas seguro?",
+  text: "No podras revertir lo siguiente",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Si, eliminalo!",
+  cancelButtonText: "Cancelar"
+
+}).then((result) => {
+    if (result.isConfirmed){
+    form.submit();
+    }
+});
+            })
+        });
+    </script>
 
     </body>
 </html>
