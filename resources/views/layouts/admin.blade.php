@@ -1,3 +1,7 @@
+@props([
+    'title' => config('app.name', 'laravel'), // <-- Aquí faltaba la coma
+    'breadcrumbs' => []
+])
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -5,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -23,6 +27,9 @@
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+        <wireui:scripts />
+
+
         <!-- Styles -->
         @livewireStyles
     </head>
@@ -32,8 +39,19 @@
  @include('layouts.includes.admin.navigation')
  @include('layouts.includes.admin.sidebar') 
         
-<div class="p-4 sm:ml-64">
-   
+<div class="p-4 sm:ml-64 pt-20">
+      <div class = "mt-14 flex items-center justify-between w-full">
+        @include('layouts.includes.admin.breadcrumb')
+
+     @if (isset($action))
+    <div>
+    {{ $action }}
+    </div>
+    @endif
+    </div>
+ {{$slot}}
+
+</div>
 </div>
 
         @stack('modals')
