@@ -12,6 +12,6 @@ Route::get('/', function(){
 //Gestion de roles
 
 Route::resource('roles', RoleController::class);
-Route::resource('usuarios', UserController::class);
-Route::resource('Servicios', UserController::class);
+Route::resource('user', UserController::class);
+Route::resource('services', UserController::class);
 

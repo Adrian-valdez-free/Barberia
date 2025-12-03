@@ -16,16 +16,22 @@ $links = [
         'href' => route('admin.roles.index'),
         'active' => request()->routeIs('admin.roles.*'),
     ],
-     [
-        'header' => 'Gestion de usuarios',
-    ],
     [
         'name' => 'Usuarios',
         'icon' => 'fa-solid fa-users',
+        'href' => route('admin.user.index'),
+        'active' => request()->routeIs('admin.users.*'),
+    ],
+     [
+        'header' => 'Servicios',
+    ],
+    [
+        'name' => 'Servicios',
+        'icon' => 'fa-solid fa-address-book',
         'href' => '#',
         'active' => false,
-        // 'href' => route('adminusuarios.index'),
-        // 'active' => request()->routeIs('adminusuarios.*'),
+        //'href' => route('admin.usuarios.index'),
+        //'active' => request()->routeIs('admin.usuarios.*'),
     ],
 ];
 @endphp

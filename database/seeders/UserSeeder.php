@@ -16,13 +16,40 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+       $usuarios = [
+        [
+            'name' => 'Santiago',
+            'email' => 'santi@gmail.com',
+            'phone' => '9991111111',
+            'id_number' => '0000000001',
+            'role' => 'Administrador'
+        ],
+        [
+            'name' => 'Simon',
+            'email' => 'simon@gmail.com',
+            'phone' => '9992222222',
+            'id_number' => '0000000002',
+            'role' => 'Barberos'
+
+        ],
+        [
+            'name' => 'Homero',
+            'email' => 'homero@gmail.com',
+            'phone' => '9993333333',
+            'id_number' => '0000000003',
+            'role' => 'Recepcionista'
+        ],
+    ];
+
+    foreach($usuarios as $datos){
         User::factory()->create([
-            'name' => 'Jose Adrian',
-            'email' => 'joseadmin@gmail.com',
-            'password' => bcrypt('123456789'),
-            'id_number' => '1234567890',
-            'phone' => '9999999999',
-            'address' => 'Calle 46 Juanpablo andy adonay'
-        ])->assignRole('Administrador');
+            'name'      => $datos['name'],
+            'email'     => $datos['email'],
+            'phone'     => $datos['phone'],
+            'id_number' => $datos['id_number'],
+            'address'   => 'Calle Conocida # ' . rand(1, 100), // Dirección semi-aleatoria
+            'password'  => bcrypt('123456789'),
+        ])->assignRole($datos['role']);
+    }
     }
 }
