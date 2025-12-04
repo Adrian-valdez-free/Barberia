@@ -7,6 +7,6 @@
 
    [ 'name' => 'Sucursal Merida'],
 ]"> 
-Holas
+Holas Gaxiola
 </x-admin-layout>
   

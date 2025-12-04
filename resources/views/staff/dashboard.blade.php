@@ -7,6 +7,6 @@
 
    [ 'name' => 'Sucursal Merida'],
 ]"> 
-Holas
+Perdon Por tan poco
 </x-staff-layout>
   
