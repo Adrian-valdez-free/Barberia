@@ -14,14 +14,23 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         //aqui van las nuevas rutas
         then: function(){
-            Route::middleware('web', 'auth')
+            Route::middleware('web', 'auth', 'role:Administrador')
                 ->prefix('admin')
                 ->name('admin.')
                 ->group(base_path('routes/admin.php'));
+
+                Route::middleware('web', 'auth', 'role:Barberos|Recepcionista')
+                ->prefix('staff')
+                ->name('staff.')
+                ->group(base_path('routes/staff.php'));
         }
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
+            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
