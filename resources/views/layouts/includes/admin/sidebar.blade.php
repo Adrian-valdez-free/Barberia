@@ -28,10 +28,8 @@ $links = [
     [
         'name' => 'Servicios',
         'icon' => 'fa-solid fa-address-book',
-        'href' => '#',
-        'active' => false,
-        //'href' => route('admin.usuarios.index'),
-        //'active' => request()->routeIs('admin.usuarios.*'),
+        'href' => route('admin.services.index'),
+        'active' => request()->routeIs('admin.services.*'),
     ],
 ];
 @endphp

@@ -45,7 +45,7 @@ class UserController extends Controller
         $idNumber = random_int(1000000000, 9999999999);
     }while (\App\Models\User::where('id_number', $idNumber)->exists());
 
-    $user = User::create([
+     User::create([
         'name' => $request->name,
         'email' => $request->email,
         'phone' => $request->phone,
