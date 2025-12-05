@@ -16,6 +16,15 @@ $links = [
         'href' => route('staff.services.index'),
         'active' => request()->routeIs('staff.services.*'),
     ],
+    [
+        'header' => 'Citas',
+    ],
+    [
+        'name' => 'Citas',
+        'icon' => 'fa-solid fa-address-book',
+        'href' => "#",
+        'active' => false,
+    ],
 ];
 @endphp
  

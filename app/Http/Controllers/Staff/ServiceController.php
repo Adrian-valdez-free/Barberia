@@ -121,6 +121,6 @@ class ServiceController extends Controller
             'title' => 'Eliminado',
             'text' => 'El servicio ha sido eliminado exitosamente',
         ]);
-        return view('admin.services.index');
+        return view('staff.services.index');
     }
 }

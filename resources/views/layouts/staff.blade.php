@@ -76,13 +76,13 @@
                 //evite que se envie 
                 e.preventDefault();
                 Swal.fire({
-  title: "¿Estas seguro?",
+  title: "¿Estás seguró?",
   text: "No podras revertir lo siguiente",
   icon: "warning",
   showCancelButton: true,
   confirmButtonColor: "#3085d6",
   cancelButtonColor: "#d33",
-  confirmButtonText: "Si, eliminalo!",
+  confirmButtonText: "!Si, eliminalo!",
   cancelButtonText: "Cancelar"
 
 }).then((result) => {
